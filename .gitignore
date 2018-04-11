@@ -1,0 +1,10 @@
+*.swp
+*.zip
+*~
+*.aux
+*.log
+*.dropbox
+*.tmp
+*.fls
+*.fdb_latexmk
+*.gz
