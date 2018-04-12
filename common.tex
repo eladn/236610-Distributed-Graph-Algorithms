@@ -9,6 +9,8 @@
 \usepackage{polyglossia,enumitem}
 \usepackage{bm}
 \usepackage{fontawesome}
+\usepackage{chngcntr}
+
 
 % HEBREW
 \setmainlanguage{hebrew}
@@ -25,12 +27,19 @@
 % THEOREMS
 \renewcommand*{\proofname}{הוכחה}
 \newtheorem{example}{דוגמה}
+\counterwithin*{example}{section}
 \newtheorem{definition}{הגדרה}
+\counterwithin*{definition}{section}
 \newtheorem{observation}{אבחנה}
+\counterwithin*{observation}{section}
 \newtheorem{claim}{טענה}
+\counterwithin*{claim}{section}
 \newtheorem{lemma}{למה}
+\counterwithin*{lemma}{section}
 \newtheorem{theorem}{משפט}
+\counterwithin*{theorem}{section}
 \newtheorem{corollary}{מסקנה}
+\counterwithin*{corollary}{section}
 
 % COMMANDS
 \newcommand{\defeq}{\vcentcolon=}
@@ -38,7 +47,6 @@
 % LAYOUT
 \setlength\parindent{0pt}
 \def\arraystretch{1.5}
-
 
 % FRONT
 \newcommand{\front}[2]{
@@ -108,3 +116,9 @@
 	}
 }
 
+\def\padzeros#1{\ifnum#1<10 0\fi\number#1}
+\newcommand{\lecture}[1]{
+	\def\lecnum{#1}
+    \def\paddedlecnum{\padzeros{#1}}
+}
+\def\insert#1{\input{lec\paddedlecnum/#1}}
